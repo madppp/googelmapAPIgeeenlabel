@@ -12,18 +12,29 @@ src="http://maps.google.com/maps/api/js?sensor=false">
 <script type="text/javascript">  
 
 function initialize() {
-  var latlng = new google.maps.LatLng(35.681382, 139.766084);
+  var latlng = new google.maps.LatLng(35.669096, 139.7072);
   var myOptions = {
-    zoom: 14,
+    zoom: 37,
     center: latlng,
+    disableDefaultUI: true,
+    mapTypeControl: true,
+    zoomControlOptions: {
+    style: google.maps.ZoomControlStyle.SMALL},
     mapTypeControlOptions: { mapTypeIds: ['fancy1', google.maps.MapTypeId.ROADMAP] }
   };
   var map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
   
-  /* スタイル付き地図 */
+   var image = 'radd.png';
+  var latlng = new google.maps.LatLng(35.66914, 139.70738);
+  var beachMarker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+      icon: image
+  });
+    /* スタイル付き地図 */
   var styleOptions = [ {
     "stylers": [{ "hue": "#1aff00" },{ "gamma": 0.49 },{ "saturation": 100 },{ "lightness": -60 },{ "weight": 2 }]}];
-  var styledMapOptions = { name: '***' }
+  var styledMapOptions = { name: 'RADD LOUNGE' }
   var fancyType = new google.maps.StyledMapType(styleOptions, styledMapOptions);
   map.mapTypes.set('fancy1', fancyType);
   map.setMapTypeId('fancy1');
